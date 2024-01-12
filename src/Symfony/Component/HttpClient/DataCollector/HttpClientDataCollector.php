@@ -181,7 +181,7 @@ final class HttpClientDataCollector extends DataCollector implements LateDataCol
         }
 
         $url = $trace['info']['original_url'] ?? $trace['info']['url'] ?? $trace['url'];
-        $command = ['curl', '--compressed'];
+        $command = ['curl', '--compressed', '--globoff'];
 
         if (isset($trace['options']['resolve'])) {
             $port = parse_url($url, \PHP_URL_PORT) ?: (str_starts_with('http:', $url) ? 80 : 443);
